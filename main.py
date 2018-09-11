@@ -39,9 +39,9 @@ flags.DEFINE_integer("step_mul", 8, "Game steps per agent step.")
 
 flags.DEFINE_string("agent", "agents.a3c_agent.A3CAgent", "Which agent to run.")
 flags.DEFINE_string("net", "fcn", "atari or fcn.")
-flags.DEFINE_enum("agent_race", None, sc2_env.races.keys(), "Agent's race.")
-flags.DEFINE_enum("bot_race", None, sc2_env.races.keys(), "Bot's race.")
-flags.DEFINE_enum("difficulty", None, sc2_env.difficulties.keys(), "Bot's strength.")
+flags.DEFINE_enum("agent_race", None, sc2_env.Race._member_names_, "Agent's race.")
+flags.DEFINE_enum("bot_race", None, sc2_env.Race._member_names_, "Bot's race.")
+flags.DEFINE_enum("difficulty", None, sc2_env.Difficulty._member_names_, "Bot's strength.")
 flags.DEFINE_integer("max_agent_steps", 60, "Total agent steps.")
 
 flags.DEFINE_bool("profile", False, "Whether to turn on code profiling.")
