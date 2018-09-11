@@ -102,9 +102,9 @@ class A3CAgent(object):
 
 
   def step(self, obs):
-    minimap = np.array(obs.observation['minimap'], dtype=np.float32)
+    minimap = np.array(obs.observation['feature_minimap'], dtype=np.float32)
     minimap = np.expand_dims(U.preprocess_minimap(minimap), axis=0)
-    screen = np.array(obs.observation['screen'], dtype=np.float32)
+    screen = np.array(obs.observation['feature_screen'], dtype=np.float32)
     screen = np.expand_dims(U.preprocess_screen(screen), axis=0)
     # TODO: only use available actions
     info = np.zeros([1, self.isize], dtype=np.float32)
@@ -153,9 +153,9 @@ class A3CAgent(object):
     if obs.last():
       R = 0
     else:
-      minimap = np.array(obs.observation['minimap'], dtype=np.float32)
+      minimap = np.array(obs.observation['feature_minimap'], dtype=np.float32)
       minimap = np.expand_dims(U.preprocess_minimap(minimap), axis=0)
-      screen = np.array(obs.observation['screen'], dtype=np.float32)
+      screen = np.array(obs.observation['feature_screen'], dtype=np.float32)
       screen = np.expand_dims(U.preprocess_screen(screen), axis=0)
       info = np.zeros([1, self.isize], dtype=np.float32)
       info[0, obs.observation['available_actions']] = 1
@@ -180,9 +180,9 @@ class A3CAgent(object):
 
     rbs.reverse()
     for i, [obs, action, next_obs] in enumerate(rbs):
-      minimap = np.array(obs.observation['minimap'], dtype=np.float32)
+      minimap = np.array(obs.observation['feature_minimap'], dtype=np.float32)
       minimap = np.expand_dims(U.preprocess_minimap(minimap), axis=0)
-      screen = np.array(obs.observation['screen'], dtype=np.float32)
+      screen = np.array(obs.observation['feature_screen'], dtype=np.float32)
       screen = np.expand_dims(U.preprocess_screen(screen), axis=0)
       info = np.zeros([1, self.isize], dtype=np.float32)
       info[0, obs.observation['available_actions']] = 1

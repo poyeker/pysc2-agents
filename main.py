@@ -74,8 +74,10 @@ def run_thread(agent, map_name, visualize):
     bot_race=FLAGS.bot_race,
     difficulty=FLAGS.difficulty,
     step_mul=FLAGS.step_mul,
-    screen_size_px=(FLAGS.screen_resolution, FLAGS.screen_resolution),
-    minimap_size_px=(FLAGS.minimap_resolution, FLAGS.minimap_resolution),
+    agent_interface_format=sc2_env.AgentInterfaceFormat(
+        feature_dimensions=sc2_env.Dimensions(
+            screen=64,
+            minimap=64)),
     visualize=visualize) as env:
     env = available_actions_printer.AvailableActionsPrinter(env)
 
